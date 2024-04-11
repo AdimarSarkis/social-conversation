@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { cn } from "@/lib/utils";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="pt-br" suppressHydrationWarning>
-        <body className={font.className}>
+        <body className={cn(
+          font.className,
+          "bg-white dark:bg-cyan-900"
+          )}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
